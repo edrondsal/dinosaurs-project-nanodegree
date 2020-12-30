@@ -16,7 +16,7 @@ import {FactSpeciesFactory} from './FactSpeciesFactory'
 * @param {FactSpeciesFactory} object - the base object for the factory function
 */
 function TileFactory(object){
-    const image = `images/${object.Species}.png`;
+    const image = `images/${object.species}.png`;
     const name = !!object.name ? object.name : object.species;
     
 
@@ -49,7 +49,7 @@ function TileFactory(object){
             if(fact!=undefined){
                 let factElement = document.createElement('p');
                 factElement.innerHTML = fact;
-                tileElement.appendChild(fact);
+                tileElement.appendChild(factElement);
             }
 
             return tileElement;

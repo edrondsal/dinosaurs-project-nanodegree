@@ -1,6 +1,11 @@
 
 @use 'theme';
 
+//Hidden Item
+.hidden-item{
+    display: none;
+}
+
 /* General Styles */
 body {
     background: rgb(111, 208, 224);
@@ -41,7 +46,7 @@ p {
 
 /* Grid Styles */
 #grid {
-    background: #fff url(images/tracks.png) no-repeat;
+    //background: #fff url(images/tracks.png) no-repeat;
     background-size: cover;
     display: flex;
     margin: 2em;
@@ -163,7 +168,7 @@ select {
     margin: 10px 0;
 }
 
-#btn {
+.btn {
     display: inline-block;
     background: #ccc;
     padding: 0.8em;
@@ -171,7 +176,7 @@ select {
     transition: ease 0.3s all;
 }
 
-#btn:hover {
+.btn:hover {
     background: #777;
     color: #fff;
     cursor: pointer;

@@ -78,10 +78,10 @@ Dinosaurs.prototype.getEraFact = function(){
 */
 Dinosaurs.prototype.compareWeight = function(item){
     const diff = this.weight - item.weight;
-    const name = item instanceof Humans ? name  : item.Species;
-    if(diff > 0) return `${this.Species} is heavier than ${name} by ${diff} lbs`;
-    if(diff == 0) return `${this.Species} have same weight than ${name}`;
-    if(diff < 0) return `${this.Species} is ligther than ${name} by ${-1*diff} lbs`;
+    const name = item instanceof Humans ? item.name  : item.species;
+    if(diff > 0) return `${this.species} is heavier than ${name} by ${diff} lbs`;
+    if(diff == 0) return `${this.species} have same weight than ${name}`;
+    if(diff < 0) return `${this.species} is ligther than ${name} by ${-1*diff} lbs`;
 }
 /**
 * @description Method to compare the height with a given Human or another Species
@@ -89,11 +89,16 @@ Dinosaurs.prototype.compareWeight = function(item){
 * @return {String} the string result of the comparaison
 */
 Dinosaurs.prototype.compareHeight = function(item){
+
     const diff = this.height - item.height;
-    const name = item instanceof Humans ? name  : item.Species;
-    if(diff > 0) return `${this.Species} is bigger than ${name} by ${diff} inches`;
-    if(diff == 0) return `${this.Species} have same height than ${name}`;
-    if(diff < 0) return `${this.Species} is smaller than ${name} by ${-1*diff} inches`;
+    const name = item instanceof Humans ? item.name  : item.species;
+
+    const feets = Math.floor(diff/1);
+    const inches = Math.floor((diff % 1)/0.0833333);
+
+    if(diff > 0) return `${this.species} is bigger than ${name} by ${feets}'${inches} feet`;
+    if(diff == 0) return `${this.species} have same height than ${name}`;
+    if(diff < 0) return `${this.species} is smaller than ${name} by ${feets}'${inches} feet`;
 }
 /**
 * @description Method to compare the diet with a given Human or another Species
@@ -101,9 +106,9 @@ Dinosaurs.prototype.compareHeight = function(item){
 * @return {String} the string result of the comparaison
 */
 Dinosaurs.prototype.compareDiet = function(item){
-    const name = item instanceof Humans ? name  : item.Species;
-    if(this.diet === item.diet) return `Both ${this.Species} and ${name} have same diet`
-    return `${this.Species} is ${this.diet} while ${name} is ${item.diet}`
+    const name = item instanceof Humans ? item.name  : item.species;
+    if(this.diet === item.diet) return `Both ${this.species} and ${name} have same diet`
+    return `${this.species} is ${this.diet} while ${name} is ${item.diet}`
 }
 
 export { Species,Dinosaurs,Humans }
